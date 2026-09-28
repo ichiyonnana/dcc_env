@@ -170,7 +170,7 @@ global proc shelf_US1_General () {
         -commandRepeatable 1
         -flat 1
         -mi "SetProjectOp" ( "SetProject" )
-        -mi "Cleanup Path" ( "from maya import cmds\nimport nnutil.misc as nm\n\nimport nnutil.core as nu\n\n# set project\nnm.set_project_from_scene()\n\n# shorten filepath\ncmds.select(cmds.ls(type=\"file\"))\nnm.shorten_filepath()\n\n# shorten shaderpath\nfor mat in cnt.get_all_cnt_shder():\n    current_technique = mat.technique.get()\n    mat.shader.set(\"shader\\continue_check_shader.fx\")\n    mat.technique.set(current_technique)\n" )
+        -mi "Cleanup Path" ( "from maya import cmds\nimport nnutil.misc as nm\n\nimport nnutil.core as nu\n\n# set project\nnm.set_project_from_scene()\n\n# shorten filepath\ncmds.select(cmds.ls(type=\"file\"))\nnm.shorten_filepath()\n" )
         -mip 1
     ;
     shelfButton
@@ -212,7 +212,7 @@ global proc shelf_US1_General () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 37
+        -width 87
         -height 20
         -manage 1
         -visible 1
@@ -222,7 +222,7 @@ global proc shelf_US1_General () {
         -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -align "center" 
-        -label "init SKT" 
+        -label "Namespace Editor" 
         -labelOffset 0
         -rotation 0
         -flipX 0
@@ -235,8 +235,8 @@ global proc shelf_US1_General () {
         -style "textOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "# -*- coding: utf-8 -*-\n#===============================================================================\n# Skymill Tools\n#\n# author: Martin Yara                                          www.skymill.co.jp\n#===============================================================================\nimport sys\nsys.dont_write_bytecode = True\nimport SkyToolsLoader\nSkyToolsLoader.main()\n#-------------------------------------------------------------------------------#\n\n" 
-        -sourceType "python" 
+        -command "NamespaceEditor\n" 
+        -sourceType "mel" 
         -commandRepeatable 1
         -flat 1
         -mi "update key (blank)" ( "\ndef update_key(blank=False, perpetual=False):\n    if not blank and not perpetual:\n        raise ValueError(\"You must specify either blank or perpetual as True\")\n    \n    blank_key = \"\"\n    perpetual_key = \"ipuvgqCeo4OhroSdo6GJnK-w\"\n    key_path = r\"Y:\\projects\\skytools\\src\\SkyTools1\\Skytools\\scripts\\SkyTools\\SkyTools.key\"\n\n    if blank:\n        data = blank_key\n\n    if perpetual:\n        data = perpetual_key    \n\n    with open(key_path, \"w\") as f:\n        f.write(data)\n\n\nupdate_key(blank=True)\n" )
