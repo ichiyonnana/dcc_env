@@ -17,21 +17,6 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.toggle_joint_locator_visibility(False)")
-	Toggle_Show_Joints;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
 	-command ("import nntransform.core\n\nnntransform.core.main()")
 	NNTransform;
 
@@ -47,8 +32,68 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnutil.uv as nnuv\n\nnnuv.align_uv(axis=\"V\", side=\"max\")")
-	Align_UV_V_Max;
+	-command ("import nnutil.misc as nm\n\nnm.face_to_camera()")
+	face_to_camera;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "mel"
+	-command ("SelectVertexMask;\nMergeVertexTool;\nselect -cl;\n")
+	TargetWeldTool;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnmisc.core as nm\n\nnm.set_component_mode(\"edge\")")
+	component_mode_edge;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import maya.cmds as cmds\n\np = cmds.getPanel( withFocus=True )\nprint(p)")
+	TestCommand;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnmisc.core as nm\n\nnm.unparent_one_level()\n")
+	unparent_one;
 
 runTimeCommand
 	-label ""
@@ -77,8 +122,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnmisc.core as nnmisc\nnnmisc.smart_extrude()\n")
-	Custom_Extrude;
+	-command ("import nnutil.uv as nnuv\n\nnnuv.align_uv(axis=\"V\", side=\"min\")")
+	Align_UV_V_Min;
 
 runTimeCommand
 	-label ""
@@ -92,23 +137,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.create_set_with_name()\n")
-	create_set_with_name;
-
-runTimeCommand
-	-label ""
-	-annotation "rename object"
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.rename_dialog()\n")
-	rename_object;
+	-command ("import maya.cmds as cmds\n\nactive_panel = cmds.getPanel(wf=True)\ncmds.isolateSelect(active_panel, addSelected=True)\n")
+	add_selected_to_isolation;
 
 runTimeCommand
 	-label ""
@@ -122,8 +152,173 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.set_transform_constraint_edge()")
-	transform_constraint_edge;
+	-command ("import nnmisc.core as nm\n\nnm.set_component_mode(\"vertex\")")
+	component_mode_vertex;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "mel"
+	-command ("$activePanel = `getPanel -wf`;\n$isWireFrame = `modelEditor -q -wos $activePanel`;\nsetWireframeOnShadedOption (!$isWireFrame) $activePanel;")
+	toggle_wireframe;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnmisc.core as nnmisc\n\nnnmisc.set_manipulater_to_active_camera()\n")
+	set_manipulater_to_active_camera;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.misc as nm\n\nnm.toggle_joint_locator_visibility(True)")
+	Toggle_Show_Joints_and_Locator;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.misc as nm\n\nnm.extend_edgering_selection_grow()")
+	extend_edgering_selection_grow;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "mel"
+	-command ("SelectToggleMode;\nSelectTool;")
+	toggle_selectmode;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "mel"
+	-command ("softSelect -e -softSelectCurve \"0,1,0,1,0,1,0,1,1\";\n")
+	SoftSelection_Linear;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "mel"
+	-command ("$activePanel = `getPanel -wf`;\nmodelEditor -e -dl flat $activePanel;")
+	Display_Flat_Lighting;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import DashLegacy\nDashLegacy.showDash('mainChannelBox')\n")
+	show_dash;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import cnt_tools.uv.core as cntuv\n\ncntuv.snap_to_pixel_auto(False, False, False)\n")
+	snap_to_ordinal;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.misc\nnnutil.misc.isolate_with_imageplanes()\n\n# for previewObjectSet\nimport plugin_util.previewObjectSetUtil as pou\npou.add_preview_node_to_all_isolation_set()")
+	isolate_with_imageplane;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.misc as nm\n\nnm.parent_to_camera()")
+	parent_to_camera;
 
 runTimeCommand
 	-label ""
@@ -167,23 +362,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.face_to_camera()")
-	face_to_camera;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "mel"
-	-command ("polyEditUV -u -0.5 -v 0;")
-	lazy_left;
+	-command ("def activate_handle_x():\n    mode = 0\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\ndef activate_handle_y():\n    mode = 1\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\n\ndef activate_handle_z():\n    mode = 2\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\nactivate_handle_y()")
+	activate_handle_y;
 
 runTimeCommand
 	-label ""
@@ -197,8 +377,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.extend_edgering_selection_shrink()")
-	extend_edgering_selection_shrink;
+	-command ("import nnmisc.core as nm\n\nnm.delete_nondeformer_history()\n")
+	delete_non_deformer_history;
 
 runTimeCommand
 	-label ""
@@ -212,53 +392,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnutil.misc\n\nnnutil.misc.toggle_imageplane_visivility()\n")
-	toggle_show_imageplane;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "mel"
-	-command ("string $frame;\nstring $current=`currentTime -q`;\nstring $ret = `promptDialog\n    -title \"Go to frame\"\n    -message \"Enter frame:\"\n    -tx $current\n    -button \"OK\"\n    -button \"Cancel\"\n    -defaultButton \"OK\"\n    -cancelButton \"Cancel\"\n    -dismissString \"Cancel\"`;\n        \nif ($ret == \"OK\") {\n    $frame = `promptDialog -query -text`;\n    currentTime $frame;\n}")
-	JumpFrame;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.uv as nnuv\n\nnnuv.align_uv(axis=\"V\", side=\"min\")")
-	Align_UV_V_Min;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnmisc.core as nm\n\nnm.spin_or_triangulate()\n")
-	Spin_or_Trianglate;
+	-command ("import nnutil.misc as nm\nnm.snap_to_closest()\n")
+	snap_to_closest;
 
 runTimeCommand
 	-label ""
@@ -287,473 +422,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnmisc.core as nm\n\nnm.edgeflow_each_object(value=1, inview_editor=True)")
-	edge_flow_1;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnmisc.core as nm\n\nnm.set_component_mode(\"face\")")
-	component_mode_face;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.uv as nnuv\n\nnnuv.align_uv(axis=\"U\", side=\"min\")")
-	AlignUV_U_Min;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnskin.core as nns\n\nnns.paste_weight()")
-	paste_vertex_weight;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnskin.core as nns\n\nnns.copy_weight()\nnns.paste_weight()")
-	average_weight;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.extend_edgering_selection_grow()")
-	extend_edgering_selection_grow;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "mel"
-	-command ("polyEditUV -u 0 -v -0.5;")
-	lazy_down;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "mel"
-	-command ("texAlignShells avgV {} \"\";")
-	shell_centering_V;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "mel"
-	-command ("$activePanel = `getPanel -wf`;\nmodelEditor -e -dl flat $activePanel;")
-	Display_Flat_Lighting;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnmisc.core as nm\n\nnm.set_component_mode(\"vertex_face\")")
-	component_mode_vertexface;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnmisc.core as nnmisc\nnnmisc.smart_duplicate()")
-	Custom_Duplicate;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\nnm.snap_to_closest()\n")
-	snap_to_closest;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "mel"
-	-command ("SelectToggleMode;\nSelectTool;")
-	toggle_selectmode;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.make_lattice()")
-	make_lattice;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "mel"
-	-command ("SelectVertexMask;\nMergeVertexTool;\nselect -cl;\n")
-	TargetWeldTool;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("def activate_handle_x():\n    mode = 0\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\ndef activate_handle_y():\n    mode = 1\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\n\ndef activate_handle_z():\n    mode = 2\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\nactivate_handle_z()")
-	activate_handle_z;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import maya.cmds as cmds\n\np = cmds.getPanel( withFocus=True )\nprint(p)")
-	TestCommand;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import maya.cmds as cmds\n\nactive_panel = cmds.getPanel(wf=True)\ncmds.isolateSelect(active_panel, addSelected=True)\n")
-	add_selected_to_isolation;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnmanip.core\n\nnnmanip.core.main()")
-	NN_Manip;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.misc\nnnutil.misc.isolate_with_imageplanes()\n\n# for previewObjectSet\nimport cnt_tools.plugins.previewObjectSetUtil\ncnt_tools.plugins.previewObjectSetUtil.add_preview_node_to_all_isolation_set()")
-	isolate_with_imageplane;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "mel"
-	-command ("softSelect -e -softSelectCurve \"0,1,0,1,0,1,0,1,1\";\n")
-	SoftSelection_Linear;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "mel"
-	-command ("$activePanel = `getPanel -wf`;\n$isXRayJoint = `modelEditor -q -jointXray $activePanel`;\nmodelEditor -e -jointXray (!$isXRayJoint) $activePanel;")
-	toggle_xray_joints;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.parent_to_camera()")
-	parent_to_camera;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "mel"
-	-command ("polyEditUV -u 0 -v 0.5;")
-	lazy_up;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.set_transform_constraint_surface()")
-	transform_constraint_surface;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import cnt_tools.uv.core as cntuv\n\ncntuv.snap_4()\n")
-	Snap_to_pixel4;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.extend_edgeloop_selection_grow()")
-	extend_edgeloop_selection_grow;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "mel"
-	-command ("string $ret = `promptDialog\n        -title \"create new layer\"\n        -message \"Enter Name:\"\n\t\t-tx \"ly_\"\n        -button \"OK\"\n        -button \"Cancel\"\n        -defaultButton \"OK\"\n        -cancelButton \"Cancel\"\n        -dismissString \"Cancel\"`;\n        \nif ($ret == \"OK\") {\n    $newLayerName = `promptDialog -query -text`;\n\tcreateDisplayLayer -name ($newLayerName) -nr;\n}")
-	create_layer;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.extract_transform()")
-	extract_transform;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnmisc.core as nm\n\nnm.unparent_one_level()\n")
-	unparent_one;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import cnt_tools.uv.core as cntuv\n\ncntuv.snap_to_pixel_auto(False, False, False)\n")
-	snap_to_ordinal;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import maya.cmds as cmds\n\ncmds.select(clear=True)\n")
-	deselect_all;
+	-command ("import nnmisc.core as nm\n\nnm.edgeflow_each_object(value=0)")
+	edge_flow_0;
 
 runTimeCommand
 	-label ""
@@ -781,69 +451,39 @@ runTimeCommand
 	-plugin ""
 	-helpUrl ""
 	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.misc as nm\n\nnm.make_lattice()")
+	make_lattice;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.misc as nm\n\nnm.divide_without_history(delete_history=True)")
+	divide_without_history;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
 	-commandLanguage "mel"
-	-command ("AriRenamer")
-	Ari_Renamer;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnmisc.core as nm\n\nnm.init_env()\n")
-	show_shelf;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnmisc.core as nnmisc\n\nnnmisc.set_manipulater_to_active_camera()\n")
-	set_manipulater_to_active_camera;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("from maya import cmds\n\ncurrent_context = cmds.currentCtx()\n\nif current_context == \"art3dPaintContext\":\n    current_mode = cmds.art3dPaintCtx(current_context, q=True, reflection=True)\n    new_mode = not current_mode\n    cmds.art3dPaintCtx(cmds.currentCtx(), e=True, reflection=new_mode)\n    \n    cmds.inViewMessage(smg=\"Reflection %s\"%new_mode, pos=\"topCenter\", bkc=\"0x00000000\", fade=True)\n\nelse:\n    current_mode = cmds.symmetricModelling(q=True, symmetry=True)\n    new_mode = not current_mode\n    cmds.symmetricModelling(symmetry=new_mode)\n    \n    cmds.inViewMessage(smg=\"Symmetry %s\"%new_mode, pos=\"topCenter\", bkc=\"0x00000000\", fade=True)\n    ")
-	Toggle_Symmetry;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.align_horizontally(each_polyline=True)\n")
-	align_horizontally;
+	-command ("polyEditUV -u 0 -v -0.5;")
+	lazy_down;
 
 runTimeCommand
 	-label ""
@@ -872,98 +512,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import DashLegacy\nDashLegacy.showDash('mainChannelBox')\n")
-	show_dash;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnskin.core as nns\n\nnns.copy_weight()")
-	copy_vertex_weight;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("# \"\"\"Skytools ホットキー無効用\"\"\"\npass")
-	disable_hotkey;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.set_transform_constraint_none()\n")
-	transform_constraint_none;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnlauncher.core as nl\n\nnnlauncher.core.smart_launch()\n")
-	nn_smart_launch;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.divide_without_history(delete_history=True)")
-	divide_without_history;
-
-runTimeCommand
-	-label ""
-	-annotation ""
-	-longAnnotation ""
-	-category "Custom Scripts"
-	-image ""
-	-tags ""
-	-keywords ""
-	-plugin ""
-	-helpUrl ""
-	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnuvtoolkit.core as nnuv\n\nnnuv.main()\n")
-	nn_uvtoolkit;
+	-command ("import nnutil.misc as nm\n\nnm.toggle_joint_locator_visibility(False)")
+	Toggle_Show_Joints;
 
 runTimeCommand
 	-label ""
@@ -992,8 +542,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnmisc.core as nm\n\nnm.delete_nondeformer_history()\n")
-	delete_non_deformer_history;
+	-command ("import nnutil.misc as nm\n\nnm.set_transform_constraint_edge()")
+	transform_constraint_edge;
 
 runTimeCommand
 	-label ""
@@ -1007,8 +557,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "mel"
-	-command ("$activePanel = `getPanel -wf`;\n$isWireFrame = `modelEditor -q -wos $activePanel`;\nsetWireframeOnShadedOption (!$isWireFrame) $activePanel;")
-	toggle_wireframe;
+	-command ("polyEditUV -u -0.5 -v 0;")
+	lazy_left;
 
 runTimeCommand
 	-label ""
@@ -1022,8 +572,38 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnmisc.core as nm\n\nnm.set_component_mode(\"vertex\")")
-	component_mode_vertex;
+	-command ("import nnmisc.core as nm\n\nnm.spin_or_triangulate()\n")
+	Spin_or_Trianglate;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "mel"
+	-command ("string $ret = `promptDialog\n        -title \"create new layer\"\n        -message \"Enter Name:\"\n\t\t-tx \"ly_\"\n        -button \"OK\"\n        -button \"Cancel\"\n        -defaultButton \"OK\"\n        -cancelButton \"Cancel\"\n        -dismissString \"Cancel\"`;\n        \nif ($ret == \"OK\") {\n    $newLayerName = `promptDialog -query -text`;\n\tcreateDisplayLayer -name ($newLayerName) -nr;\n}")
+	create_layer;
+
+runTimeCommand
+	-label ""
+	-annotation "rename object"
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.misc as nm\n\nnm.rename_dialog()\n")
+	rename_object;
 
 runTimeCommand
 	-label ""
@@ -1037,8 +617,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnmisc.core as nm\n\nnm.set_component_mode(\"edge\")")
-	component_mode_edge;
+	-command ("import nnutil.misc as nm\n\nnm.set_transform_constraint_surface()")
+	transform_constraint_surface;
 
 runTimeCommand
 	-label ""
@@ -1052,8 +632,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.toggle_joint_locator_visibility(True)")
-	Toggle_Show_Joints_and_Locator;
+	-command ("import nnutil.misc as nm\n\nnm.extend_edgeloop_selection_shrink()")
+	extend_edgeloop_selection_shrink;
 
 runTimeCommand
 	-label ""
@@ -1067,8 +647,38 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnmisc.core as nm\n\nnm.set_component_mode(\"uv\")")
-	component_mode_uv;
+	-command ("import nnutil.uv as nnuv\n\nnnuv.align_uv(axis=\"V\", side=\"max\")")
+	Align_UV_V_Max;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "mel"
+	-command ("polyEditUV -u 0 -v 0.5;")
+	lazy_up;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "mel"
+	-command ("AriRenamer")
+	Ari_Renamer;
 
 runTimeCommand
 	-label ""
@@ -1082,8 +692,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("def activate_handle_x():\n    mode = 0\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\ndef activate_handle_y():\n    mode = 1\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\n\ndef activate_handle_z():\n    mode = 2\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\nactivate_handle_y()")
-	activate_handle_y;
+	-command ("import nnutil.misc as nm\n\nnm.create_set_with_name()\n")
+	create_set_with_name;
 
 runTimeCommand
 	-label ""
@@ -1097,8 +707,8 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnmisc.core as nm\n\nnm.edgeflow_each_object(value=0)")
-	edge_flow_0;
+	-command ("import nnmanip.core\n\nnnmanip.core.main()")
+	NN_Manip;
 
 runTimeCommand
 	-label ""
@@ -1127,6 +737,81 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
+	-command ("import nnmisc.core as nm\n\nnm.set_component_mode(\"uv\")")
+	component_mode_uv;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("def activate_handle_x():\n    mode = 0\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\ndef activate_handle_y():\n    mode = 1\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\n\ndef activate_handle_z():\n    mode = 2\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\nactivate_handle_z()")
+	activate_handle_z;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import maya.cmds as cmds\n\ncmds.select(clear=True)\n")
+	deselect_all;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnmisc.core as nm\n\nnm.set_component_mode(\"vertex_face\")")
+	component_mode_vertexface;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("# \"\"\"Skytools ホットキー無効用\"\"\"\npass")
+	disable_hotkey;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
 	-command ("def activate_handle_x():\n    mode = 0\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\ndef activate_handle_y():\n    mode = 1\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\n\ndef activate_handle_z():\n    mode = 2\n    cmds.manipMoveContext('Move', e=True, currentActiveHandle=mode)\n    cmds.manipRotateContext('Rotate', e=True, currentActiveHandle=mode)\n    cmds.manipScaleContext('Scale', e=True, currentActiveHandle=mode)\n\nactivate_handle_x()")
 	activate_handle_x;
 
@@ -1141,9 +826,9 @@ runTimeCommand
 	-plugin ""
 	-helpUrl ""
 	-hotkeyCtx ""
-	-commandLanguage "python"
-	-command ("import nnmisc.imageplane_from_clipboard as ifc\n\nifc.main()")
-	imageplane_from_clipboard;
+	-commandLanguage "mel"
+	-command ("string $frame;\nstring $current=`currentTime -q`;\nstring $ret = `promptDialog\n    -title \"Go to frame\"\n    -message \"Enter frame:\"\n    -tx $current\n    -button \"OK\"\n    -button \"Cancel\"\n    -defaultButton \"OK\"\n    -cancelButton \"Cancel\"\n    -dismissString \"Cancel\"`;\n        \nif ($ret == \"OK\") {\n    $frame = `promptDialog -query -text`;\n    currentTime $frame;\n}")
+	JumpFrame;
 
 runTimeCommand
 	-label ""
@@ -1157,8 +842,143 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import nnutil.misc as nm\n\nnm.extend_edgeloop_selection_shrink()")
-	extend_edgeloop_selection_shrink;
+	-command ("import nnmisc.core as nnmisc\nnnmisc.smart_duplicate()")
+	Custom_Duplicate;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnmisc.core as nm\n\nnm.edgeflow_each_object(value=1, inview_editor=True)")
+	edge_flow_1;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.misc as nm\n\nnm.extract_transform()")
+	extract_transform;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.misc\n\nnnutil.misc.toggle_imageplane_visivility()\n")
+	toggle_show_imageplane;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnuvtoolkit.core as nnuv\n\nnnuv.main()\n")
+	nn_uvtoolkit;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnmisc.core as nm\n\nnm.init_env()\n")
+	show_shelf;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import cnt_tools.uv.core as cntuv\n\ncntuv.snap_4()\n")
+	Snap_to_pixel4;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import cnt_tools.launcher.core as cntl\ncntl.main()")
+	ProjectTool;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.misc as nm\n\nnm.extend_edgeloop_selection_grow()")
+	extend_edgeloop_selection_grow;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnmisc.core as nm\n\nnm.set_component_mode(\"face\")")
+	component_mode_face;
 
 runTimeCommand
 	-label ""
@@ -1187,8 +1007,188 @@ runTimeCommand
 	-helpUrl ""
 	-hotkeyCtx ""
 	-commandLanguage "python"
-	-command ("import cnt_tools.launcher.core as cntl\ncntl.main()")
-	ProjectTool;
+	-command ("import nnutil.misc as nm\n\nnm.align_horizontally(each_polyline=True)\n")
+	align_horizontally;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnskin.core as nns\n\nnns.paste_weight()")
+	paste_vertex_weight;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "mel"
+	-command ("texAlignShells avgV {} \"\";")
+	shell_centering_V;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "mel"
+	-command ("$activePanel = `getPanel -wf`;\n$isXRayJoint = `modelEditor -q -jointXray $activePanel`;\nmodelEditor -e -jointXray (!$isXRayJoint) $activePanel;")
+	toggle_xray_joints;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnmisc.imageplane_from_clipboard as ifc\n\nifc.main()")
+	imageplane_from_clipboard;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.misc as nm\n\nnm.set_transform_constraint_none()\n")
+	transform_constraint_none;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.uv as nnuv\n\nnnuv.align_uv(axis=\"U\", side=\"min\")")
+	AlignUV_U_Min;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnlauncher.core as nl\n\nnnlauncher.core.smart_launch()\n")
+	nn_smart_launch;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnmisc.core as nnmisc\nnnmisc.smart_extrude()\n")
+	Custom_Extrude;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("from maya import cmds\n\ncurrent_context = cmds.currentCtx()\n\nif current_context == \"art3dPaintContext\":\n    current_mode = cmds.art3dPaintCtx(current_context, q=True, reflection=True)\n    new_mode = not current_mode\n    cmds.art3dPaintCtx(cmds.currentCtx(), e=True, reflection=new_mode)\n    \n    cmds.inViewMessage(smg=\"Reflection %s\"%new_mode, pos=\"topCenter\", bkc=\"0x00000000\", fade=True)\n\nelse:\n    current_mode = cmds.symmetricModelling(q=True, symmetry=True)\n    new_mode = not current_mode\n    cmds.symmetricModelling(symmetry=new_mode)\n    \n    cmds.inViewMessage(smg=\"Symmetry %s\"%new_mode, pos=\"topCenter\", bkc=\"0x00000000\", fade=True)\n    ")
+	Toggle_Symmetry;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnskin.core as nns\n\nnns.copy_weight()\nnns.paste_weight()")
+	average_weight;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnutil.misc as nm\n\nnm.extend_edgering_selection_shrink()")
+	extend_edgering_selection_shrink;
+
+runTimeCommand
+	-label ""
+	-annotation ""
+	-longAnnotation ""
+	-category "Custom Scripts"
+	-image ""
+	-tags ""
+	-keywords ""
+	-plugin ""
+	-helpUrl ""
+	-hotkeyCtx ""
+	-commandLanguage "python"
+	-command ("import nnskin.core as nns\n\nnns.copy_weight()")
+	copy_vertex_weight;
 
 //
 // The name commands referenced by the hotkeys
@@ -1913,205 +1913,205 @@ nameCommand
 //
 // The hotkey set
 //
-hotkeySet -source "Maya_Default" -current maya_20260928;
+hotkeySet -source "Maya_Default" -current maya_20261001;
 //
 // The hotkey contexts and hotkeys
 //
-hotkey -keyShortcut "i" -releaseName ("");
-hotkey -keyShortcut "d" -ctl -alt -name ("Align_UV_U_MaxNameCommand");
-hotkey -keyShortcut "Up" -sht -name ("");
-hotkey -keyShortcut "Down" -ctl -alt -sht -name ("lazy_downNameCommand");
-hotkey -keyShortcut "m" -ctl -sht -name ("MergeToCenterNameCommand");
-hotkey -keyShortcut "F4" -sht -name ("ConvertSelectionToUVsNameCommand");
-hotkey -keyShortcut "t" -name ("MoveRotateScaleToolNameCommand");
-hotkey -keyShortcut "Right" -ctl -alt -sht -name ("lazy_rightNameCommand");
-hotkey -keyShortcut "@" -ctl -name ("");
-hotkey -keyShortcut "t" -alt -name ("nnlauncherNameCommand");
-hotkey -keyShortcut "l" -name ("LassoToolNameCommand");
-hotkey -keyShortcut "\\" -name ("TogglePanZoomPressNameCommand");
-hotkey -keyShortcut "v" -ctl -sht -name ("average_weightNameCommand");
-hotkey -keyShortcut "$" -ctl -name ("");
-hotkey -keyShortcut "6" -alt -name ("SelectMeshUVShellNameCommand");
-hotkey -keyShortcut "u" -ctl -name ("nn_uvtoolkitNameCommand");
-hotkey -keyShortcut "F11" -name ("imageplane_from_clipboardNameCommand");
-hotkey -keyShortcut "F2" -ctl -name ("Ari_RenamerNameCommand");
-hotkey -keyShortcut "F1" -sht -name ("ConvertSelectionToVerticesNameCommand");
-hotkey -keyShortcut "F9" -ctl -name ("");
-hotkey -keyShortcut "j" -ctl -name ("JumpFrameNameCommand");
-hotkey -keyShortcut "w" -ctl -alt -name ("Align_UV_V_MaxNameCommand");
-hotkey -keyShortcut "0" -ctl -alt -sht -name ("");
-hotkey -keyShortcut "Left" -ctl -sht -name ("shell_centering_UNameCommand");
-hotkey -keyShortcut "F9" -alt -name ("");
-hotkey -keyShortcut "z" -releaseName ("TogglePanZoomReleaseNameCommand");
-hotkey -keyShortcut "d" -ctl -alt -sht -name ("DuplicateSpecialOptionsNameCommand");
-hotkey -keyShortcut "F12" -sht -name ("HotkeyPreferencesWindowNameCommand");
-hotkey -keyShortcut "Down" -ctl -name ("Align_UV_V_MinNameCommand");
-hotkey -keyShortcut "l" -alt -name ("");
-hotkey -keyShortcut "h" -alt -name ("SelectHierarchyNameCommand");
-hotkey -keyShortcut "t" -ctl -sht -name ("make_latticeNameCommand");
-hotkey -keyShortcut "Del" -ctl -name ("DeletePolyElementsNameCommand");
-hotkey -keyShortcut "e" -ctl -name ("Custom_ExtrudeNameCommand");
-hotkey -keyShortcut "0" -sht -name ("face_to_cameraNameCommand");
-hotkey -keyShortcut "x" -sht -releaseName ("");
-hotkey -keyShortcut "F1" -alt -sht -name ("ConvertSelectionToVertexPerimeterNameCommand");
-hotkey -keyShortcut "F2" -name ("rename_objectNameCommand");
-hotkey -keyShortcut "f" -ctl -name ("Spin_or_TrianglateNameCommand");
-hotkey -keyShortcut "3" -alt -name ("component_mode_faceNameCommand");
-hotkey -keyShortcut "9" -name ("Display_Flat_LightingNameCommand");
-hotkey -keyShortcut "0" -ctl -name ("parent_to_cameraNameCommand");
-hotkey -keyShortcut "%" -name ("toggle_xray_jointsNameCommand");
-hotkey -keyShortcut "x" -ctl -name ("PolygonCollapseNameCommand");
-hotkey -keyShortcut "F2" -alt -name ("show_dashNameCommand");
-hotkey -keyShortcut "p" -ctl -sht -name ("ExportSelectionNameCommand");
-hotkey -keyShortcut "v" -ctl -name ("paste_vertex_weightNameCommand");
-hotkey -keyShortcut "$" -name ("toggle_wireframeNameCommand");
-hotkey -keyShortcut "l" -ctl -sht -name ("");
-hotkey -keyShortcut "F12" -ctl -alt -sht -name ("TestCommandNameCommand");
-hotkey -keyShortcut "q" -ctl -name ("dR_quadDrawToolNameCommand");
-hotkey -keyShortcut "x" -sht -name ("US_DeletePolyElementsNameCommand");
-hotkey -keyShortcut "w" -alt -sht -name ("HIKPinTranslateNameCommand");
-hotkey -keyShortcut "Backspace" -ctl -name ("");
-hotkey -keyShortcut "Down" -sht -name ("");
-hotkey -keyShortcut "Left" -sht -name ("");
-hotkey -keyShortcut "!" -name ("activate_handle_xNameCommand");
-hotkey -keyShortcut "l" -releaseName ("");
-hotkey -keyShortcut "\\" -releaseName ("TogglePanZoomReleaseNameCommand");
-hotkey -keyShortcut "d" -sht -name ("DeleteNonDeformerHistoryNameCommand");
-hotkey -keyShortcut "F12" -name ("PreferencesWindowNameCommand");
-hotkey -keyShortcut "i" -name ("");
-hotkey -keyShortcut "c" -ctl -name ("copy_vertex_weightNameCommand");
-hotkey -keyShortcut "F12" -ctl -sht -name ("");
-hotkey -keyShortcut "%" -ctl -name ("Toggle_Show_JointsNameCommand");
-hotkey -keyShortcut "F2" -alt -sht -name ("ConvertSelectionToEdgePerimeterNameCommand");
-hotkey -keyShortcut "f" -sht -name ("toggle_3dpaint_modeNameCommand");
-hotkey -keyShortcut "1" -ctl -name ("isolate_with_imageplaneNameCommand");
-hotkey -keyShortcut "Right" -ctl -alt -name ("");
-hotkey -keyShortcut "F8" -name ("SpreadSheetEditorNameCommand");
-hotkey -keyShortcut "z" -name ("TogglePanZoomPressNameCommand");
-hotkey -keyShortcut "d" -ctl -sht -name ("Custom_DuplicateNameCommand");
-hotkey -keyShortcut "p" -ctl -name ("");
-hotkey -keyShortcut "F2" -sht -name ("ConvertSelectionToEdgesNameCommand");
-hotkey -keyShortcut "y" -sht -name ("align_horizontallyNameCommand");
-hotkey -keyShortcut "F10" -ctl -name ("");
+hotkey -keyShortcut "s" -alt -sht -name ("AverageVertexNameCommand");
+hotkey -keyShortcut "r" -alt -sht -name ("nn_smart_launchNameCommand");
+hotkey -keyShortcut "F12" -ctl -name ("");
+hotkey -keyShortcut "s" -sht -releaseName ("");
+hotkey -keyShortcut "Up" -ctl -name ("Align_UV_V_MaxNameCommand");
+hotkey -keyShortcut "Up" -ctl -alt -sht -name ("lazy_upNameCommand");
+hotkey -keyShortcut "o" -name ("");
+hotkey -keyShortcut "Left" -ctl -alt -sht -name ("lazy_leftNameCommand");
+hotkey -keyShortcut "!" -ctl -name ("add_selected_to_isolationNameCommand");
+hotkey -keyShortcut "4" -alt -name ("component_mode_vertexfaceNameCommand");
+hotkey -keyShortcut "p" -sht -name ("unparent_oneNameCommand");
+hotkey -keyShortcut "Right" -sht -name ("");
+hotkey -keyShortcut "<" -alt -name ("extend_edgering_selection_shrinkNameCommand");
+hotkey -keyShortcut "F12" -alt -name ("PluginManagerNameCommand");
+hotkey -keyShortcut "r" -alt -name ("ProjectToolNameCommand");
+hotkey -keyShortcut "b" -sht -releaseName ("");
+hotkey -keyShortcut "i" -ctl -name ("ImportNameCommand");
+hotkey -keyShortcut "5" -alt -name ("component_mode_uvNameCommand");
 hotkey -keyShortcut "q" -sht -releaseName ("");
 hotkey -keyShortcut "Left" -ctl -name ("AlignUV_U_MinNameCommand");
 hotkey -keyShortcut "F9" -name ("CycleBackgroundColorNameCommand");
 hotkey -keyShortcut "x" -alt -name ("Toggle_SymmetryNameCommand");
-hotkey -keyShortcut "i" -ctl -name ("ImportNameCommand");
-hotkey -keyShortcut "5" -alt -name ("component_mode_uvNameCommand");
-hotkey -keyShortcut "#" -name ("activate_handle_zNameCommand");
-hotkey -keyShortcut "<" -ctl -name ("extend_edgeloop_selection_shrinkNameCommand");
 hotkey -keyShortcut "m" -alt -name ("PolyMergeNameCommand");
 hotkey -keyShortcut "e" -name ("RotateToolNameCommand");
-hotkey -keyShortcut "<" -alt -name ("extend_edgering_selection_shrinkNameCommand");
-hotkey -keyShortcut "p" -sht -name ("unparent_oneNameCommand");
-hotkey -keyShortcut "Right" -sht -name ("");
-hotkey -keyShortcut "b" -sht -releaseName ("");
-hotkey -keyShortcut "F12" -alt -name ("PluginManagerNameCommand");
-hotkey -keyShortcut "r" -alt -name ("ProjectToolNameCommand");
-hotkey -keyShortcut "!" -ctl -name ("add_selected_to_isolationNameCommand");
-hotkey -keyShortcut "4" -alt -name ("component_mode_vertexfaceNameCommand");
-hotkey -keyShortcut "Up" -ctl -alt -sht -name ("lazy_upNameCommand");
-hotkey -keyShortcut "o" -name ("");
-hotkey -keyShortcut "Left" -ctl -alt -sht -name ("lazy_leftNameCommand");
-hotkey -keyShortcut "s" -sht -releaseName ("");
-hotkey -keyShortcut "s" -alt -sht -name ("AverageVertexNameCommand");
-hotkey -keyShortcut "r" -alt -sht -name ("nn_smart_launchNameCommand");
-hotkey -keyShortcut "F12" -ctl -name ("");
-hotkey -keyShortcut "Up" -ctl -name ("Align_UV_V_MaxNameCommand");
-hotkey -keyShortcut "l" -ctl -alt -name ("");
-hotkey -keyShortcut "Return" -alt -name ("ToolSettingsWindowNameCommand");
-hotkey -keyShortcut "g" -ctl -alt -name ("");
-hotkey -keyShortcut "|" -ctl -name ("");
-hotkey -keyShortcut "c" -ctl -alt -name ("dR_connectToolNameCommand");
-hotkey -keyShortcut "4" -ctl -name ("dR_viewXrayTGLNameCommand");
-hotkey -keyShortcut "F3" -sht -name ("ConvertSelectionToFacesNameCommand");
-hotkey -keyShortcut "s" -alt -name ("SmoothSkinWeightsNameCommand");
-hotkey -keyShortcut "f" -alt -name ("edge_flow_1NameCommand");
-hotkey -keyShortcut "Up" -ctl -sht -name ("shell_centering_VNameCommand");
-hotkey -keyShortcut "a" -sht -name ("NNTransformNameCommand");
-hotkey -keyShortcut "d" -releaseName ("");
-hotkey -keyShortcut "F10" -name ("show_shelfNameCommand");
-hotkey -keyShortcut "a" -ctl -alt -sht -name ("");
-hotkey -keyShortcut "F3" -alt -sht -name ("ConvertSelectionToFacePerimeterNameCommand");
-hotkey -keyShortcut "^" -ctl -name ("nnskinNameCommand");
-hotkey -keyShortcut "a" -ctl -alt -name ("AlignUV_U_MinNameCommand");
-hotkey -keyShortcut "6" -ctl -name ("toggle_show_imageplaneNameCommand");
-hotkey -keyShortcut "s" -name ("");
+hotkey -keyShortcut "#" -name ("activate_handle_zNameCommand");
+hotkey -keyShortcut "<" -ctl -name ("extend_edgeloop_selection_shrinkNameCommand");
+hotkey -keyShortcut "e" -alt -name ("set_manipulater_to_active_cameraNameCommand");
+hotkey -keyShortcut "Down" -ctl -sht -name ("shell_centering_VNameCommand");
+hotkey -keyShortcut "s" -ctl -alt -name ("Align_UV_V_MinNameCommand");
 hotkey -keyShortcut "Right" -name ("PickWalkRightNameCommand");
 hotkey -keyShortcut "F11" -ctl -name ("");
 hotkey -keyShortcut "l" -ctl -name ("");
 hotkey -keyShortcut "n" -ctl -sht -name ("create_layerNameCommand");
-hotkey -keyShortcut "e" -alt -name ("set_manipulater_to_active_cameraNameCommand");
-hotkey -keyShortcut "s" -ctl -alt -name ("Align_UV_V_MinNameCommand");
-hotkey -keyShortcut "Down" -ctl -sht -name ("shell_centering_VNameCommand");
 hotkey -keyShortcut ">" -ctl -name ("extend_edgeloop_selection_growNameCommand");
-hotkey -keyShortcut "Right" -ctl -name ("Align_UV_U_MaxNameCommand");
 hotkey -keyShortcut "m" -name ("disableNameCommand");
-hotkey -keyShortcut "e" -ctl -alt -name ("Snap_to_ordinal_in_blockNameCommand");
-hotkey -keyShortcut "F7" -name ("GraphEditorNameCommand");
-hotkey -keyShortcut "d" -alt -name ("divide_without_historyNameCommand");
-hotkey -keyShortcut "q" -ctl -alt -name ("snap_to_pixelsNameCommand");
-hotkey -keyShortcut "i" -ctl -sht -name ("ScriptEditorNameCommand");
-hotkey -keyShortcut "1" -alt -name ("component_mode_vertexNameCommand");
-hotkey -keyShortcut "b" -alt -name ("GoToBindPoseNameCommand");
-hotkey -keyShortcut "\"" -name ("activate_handle_yNameCommand");
-hotkey -keyShortcut "c" -alt -name ("ConnectComponentsNameCommand");
+hotkey -keyShortcut "Right" -ctl -name ("Align_UV_U_MaxNameCommand");
+hotkey -keyShortcut "a" -ctl -alt -sht -name ("");
+hotkey -keyShortcut "F3" -alt -sht -name ("ConvertSelectionToFacePerimeterNameCommand");
+hotkey -keyShortcut "^" -ctl -name ("nnskinNameCommand");
+hotkey -keyShortcut "a" -sht -name ("NNTransformNameCommand");
+hotkey -keyShortcut "d" -releaseName ("");
+hotkey -keyShortcut "F10" -name ("show_shelfNameCommand");
+hotkey -keyShortcut "s" -name ("");
+hotkey -keyShortcut "a" -ctl -alt -name ("AlignUV_U_MinNameCommand");
+hotkey -keyShortcut "6" -ctl -name ("toggle_show_imageplaneNameCommand");
+hotkey -keyShortcut "c" -ctl -alt -name ("dR_connectToolNameCommand");
+hotkey -keyShortcut "4" -ctl -name ("dR_viewXrayTGLNameCommand");
+hotkey -keyShortcut "|" -ctl -name ("");
+hotkey -keyShortcut "F3" -sht -name ("ConvertSelectionToFacesNameCommand");
+hotkey -keyShortcut "s" -alt -name ("SmoothSkinWeightsNameCommand");
+hotkey -keyShortcut "Up" -ctl -sht -name ("shell_centering_VNameCommand");
+hotkey -keyShortcut "f" -alt -name ("edge_flow_1NameCommand");
+hotkey -keyShortcut "Return" -alt -name ("ToolSettingsWindowNameCommand");
+hotkey -keyShortcut "l" -ctl -alt -name ("");
+hotkey -keyShortcut "g" -ctl -alt -name ("");
+hotkey -keyShortcut "5" -ctl -name ("toggle_show_jointsNameCommand");
+hotkey -keyShortcut "7" -ctl -name ("");
+hotkey -keyShortcut "d" -ctl -name ("deselect_allNameCommand");
+hotkey -keyShortcut "[" -ctl -name ("");
+hotkey -keyShortcut "d" -name ("EnterEditModePressNameCommand");
+hotkey -keyShortcut "\\" -ctl -name ("");
+hotkey -keyShortcut "p" -alt -sht -name ("extract_transformNameCommand");
+hotkey -keyShortcut "z" -ctl -sht -name ("RedoNameCommand");
 hotkey -keyShortcut "w" -ctl -name ("");
 hotkey -keyShortcut "n" -sht -name ("snap_to_closestNameCommand");
 hotkey -keyShortcut "q" -ctl -sht -name ("");
-hotkey -keyShortcut "p" -alt -sht -name ("extract_transformNameCommand");
-hotkey -keyShortcut "z" -ctl -sht -name ("RedoNameCommand");
-hotkey -keyShortcut "f" -alt -sht -name ("edge_flow_0NameCommand");
 hotkey -keyShortcut "1" -ctl -alt -name ("straighten_uvsellNameCommand");
 hotkey -keyShortcut "!" -alt -name ("transform_constraint_noneNameCommand");
 hotkey -keyShortcut "m" -releaseName ("");
-hotkey -keyShortcut "7" -ctl -name ("");
-hotkey -keyShortcut "d" -name ("EnterEditModePressNameCommand");
-hotkey -keyShortcut "[" -ctl -name ("");
-hotkey -keyShortcut "d" -ctl -name ("deselect_allNameCommand");
-hotkey -keyShortcut "5" -ctl -name ("toggle_show_jointsNameCommand");
-hotkey -keyShortcut "\\" -ctl -name ("");
-hotkey -keyShortcut "e" -alt -sht -name ("unpin_maniplator_pivotNameCommand");
-hotkey -keyShortcut ">" -alt -name ("extend_edgering_selection_growNameCommand");
-hotkey -keyShortcut "w" -alt -name ("TargetWeldToolNameCommand");
-hotkey -keyShortcut "F1" -name ("toggle_selectmodeNameCommand");
-hotkey -keyShortcut "b" -sht -name ("SoftSelection_LinearNameCommand");
-hotkey -keyShortcut "g" -alt -name ("create_set_with_nameNameCommand");
-hotkey -keyShortcut "q" -sht -name ("SetKeyNameCommand");
-hotkey -keyShortcut "]" -ctl -name ("NN_ManipNameCommand");
-hotkey -keyShortcut "Right" -ctl -sht -name ("shell_centering_UNameCommand");
-hotkey -keyShortcut "Left" -name ("PickWalkLeftNameCommand");
-hotkey -keyShortcut "F4" -alt -sht -name ("ConvertSelectionToUVPerimeterNameCommand");
-hotkey -keyShortcut "e" -releaseName ("");
+hotkey -keyShortcut "f" -alt -sht -name ("edge_flow_0NameCommand");
+hotkey -keyShortcut "q" -ctl -alt -name ("snap_to_pixelsNameCommand");
+hotkey -keyShortcut "i" -ctl -sht -name ("ScriptEditorNameCommand");
+hotkey -keyShortcut "\"" -name ("activate_handle_yNameCommand");
+hotkey -keyShortcut "b" -alt -name ("GoToBindPoseNameCommand");
+hotkey -keyShortcut "1" -alt -name ("component_mode_vertexNameCommand");
+hotkey -keyShortcut "c" -alt -name ("ConnectComponentsNameCommand");
+hotkey -keyShortcut "e" -ctl -alt -name ("Snap_to_ordinal_in_blockNameCommand");
+hotkey -keyShortcut "F7" -name ("GraphEditorNameCommand");
+hotkey -keyShortcut "d" -alt -name ("divide_without_historyNameCommand");
+hotkey -keyShortcut "\"" -alt -name ("transform_constraint_edgeNameCommand");
+hotkey -keyShortcut "o" -releaseName ("");
+hotkey -keyShortcut "F6" -name ("NodeEditorWindowNameCommand");
+hotkey -keyShortcut "g" -sht -name ("");
+hotkey -keyShortcut "#" -alt -name ("transform_constranit_surfaceNameCommand");
 hotkey -keyShortcut "p" -ctl -alt -sht -name ("UnparentNameCommand");
 hotkey -keyShortcut "s" -sht -name ("MultiCutToolNameCommand");
 hotkey -keyShortcut "2" -alt -name ("component_mode_edgeNameCommand");
 hotkey -keyShortcut "F5" -name ("HypershadeWindowNameCommand");
 hotkey -keyShortcut "g" -ctl -sht -name ("");
-hotkey -keyShortcut "\"" -alt -name ("transform_constraint_edgeNameCommand");
-hotkey -keyShortcut "F6" -name ("NodeEditorWindowNameCommand");
-hotkey -keyShortcut "g" -sht -name ("");
-hotkey -keyShortcut "#" -alt -name ("transform_constranit_surfaceNameCommand");
-hotkey -keyShortcut "o" -releaseName ("");
-hotkeyCtx -type "Editor" -addClient "profilerPanel";
-hotkeyCtx -type "Editor" -addClient "timeEditorPanel";
-hotkeyCtx -type "Editor" -addClient "hyperShadePanel";
-hotkeyCtx -type "Editor" -addClient "posePanel";
-hotkeyCtx -type "Editor" -addClient "hyperGraphPanel";
+hotkey -keyShortcut "Left" -name ("PickWalkLeftNameCommand");
+hotkey -keyShortcut "q" -sht -name ("SetKeyNameCommand");
+hotkey -keyShortcut "]" -ctl -name ("NN_ManipNameCommand");
+hotkey -keyShortcut "Right" -ctl -sht -name ("shell_centering_UNameCommand");
+hotkey -keyShortcut "F4" -alt -sht -name ("ConvertSelectionToUVPerimeterNameCommand");
+hotkey -keyShortcut "e" -releaseName ("");
+hotkey -keyShortcut ">" -alt -name ("extend_edgering_selection_growNameCommand");
+hotkey -keyShortcut "w" -alt -name ("TargetWeldToolNameCommand");
+hotkey -keyShortcut "F1" -name ("toggle_selectmodeNameCommand");
+hotkey -keyShortcut "e" -alt -sht -name ("unpin_maniplator_pivotNameCommand");
+hotkey -keyShortcut "b" -sht -name ("SoftSelection_LinearNameCommand");
+hotkey -keyShortcut "g" -alt -name ("create_set_with_nameNameCommand");
+hotkey -keyShortcut "0" -ctl -alt -sht -name ("");
+hotkey -keyShortcut "Left" -ctl -sht -name ("shell_centering_UNameCommand");
+hotkey -keyShortcut "F9" -ctl -name ("");
+hotkey -keyShortcut "j" -ctl -name ("JumpFrameNameCommand");
+hotkey -keyShortcut "w" -ctl -alt -name ("Align_UV_V_MaxNameCommand");
+hotkey -keyShortcut "F9" -alt -name ("");
+hotkey -keyShortcut "z" -releaseName ("TogglePanZoomReleaseNameCommand");
+hotkey -keyShortcut "$" -ctl -name ("");
+hotkey -keyShortcut "v" -ctl -sht -name ("average_weightNameCommand");
+hotkey -keyShortcut "F2" -ctl -name ("Ari_RenamerNameCommand");
+hotkey -keyShortcut "F1" -sht -name ("ConvertSelectionToVerticesNameCommand");
+hotkey -keyShortcut "6" -alt -name ("SelectMeshUVShellNameCommand");
+hotkey -keyShortcut "u" -ctl -name ("nn_uvtoolkitNameCommand");
+hotkey -keyShortcut "F11" -name ("imageplane_from_clipboardNameCommand");
+hotkey -keyShortcut "Right" -ctl -alt -sht -name ("lazy_rightNameCommand");
+hotkey -keyShortcut "@" -ctl -name ("");
+hotkey -keyShortcut "F4" -sht -name ("ConvertSelectionToUVsNameCommand");
+hotkey -keyShortcut "t" -name ("MoveRotateScaleToolNameCommand");
+hotkey -keyShortcut "l" -name ("LassoToolNameCommand");
+hotkey -keyShortcut "\\" -name ("TogglePanZoomPressNameCommand");
+hotkey -keyShortcut "t" -alt -name ("nnlauncherNameCommand");
+hotkey -keyShortcut "Down" -ctl -alt -sht -name ("lazy_downNameCommand");
+hotkey -keyShortcut "Up" -sht -name ("");
+hotkey -keyShortcut "d" -ctl -alt -name ("Align_UV_U_MaxNameCommand");
+hotkey -keyShortcut "m" -ctl -sht -name ("MergeToCenterNameCommand");
+hotkey -keyShortcut "i" -releaseName ("");
+hotkey -keyShortcut "F1" -alt -sht -name ("ConvertSelectionToVertexPerimeterNameCommand");
+hotkey -keyShortcut "F2" -name ("rename_objectNameCommand");
+hotkey -keyShortcut "f" -ctl -name ("Spin_or_TrianglateNameCommand");
+hotkey -keyShortcut "0" -sht -name ("face_to_cameraNameCommand");
+hotkey -keyShortcut "x" -sht -releaseName ("");
+hotkey -keyShortcut "l" -alt -name ("");
+hotkey -keyShortcut "h" -alt -name ("SelectHierarchyNameCommand");
+hotkey -keyShortcut "t" -ctl -sht -name ("make_latticeNameCommand");
+hotkey -keyShortcut "Del" -ctl -name ("DeletePolyElementsNameCommand");
+hotkey -keyShortcut "e" -ctl -name ("Custom_ExtrudeNameCommand");
+hotkey -keyShortcut "d" -ctl -alt -sht -name ("DuplicateSpecialOptionsNameCommand");
+hotkey -keyShortcut "F12" -sht -name ("HotkeyPreferencesWindowNameCommand");
+hotkey -keyShortcut "Down" -ctl -name ("Align_UV_V_MinNameCommand");
+hotkey -keyShortcut "w" -alt -sht -name ("HIKPinTranslateNameCommand");
+hotkey -keyShortcut "Backspace" -ctl -name ("");
+hotkey -keyShortcut "q" -ctl -name ("dR_quadDrawToolNameCommand");
+hotkey -keyShortcut "x" -sht -name ("US_DeletePolyElementsNameCommand");
+hotkey -keyShortcut "v" -ctl -name ("paste_vertex_weightNameCommand");
+hotkey -keyShortcut "$" -name ("toggle_wireframeNameCommand");
+hotkey -keyShortcut "l" -ctl -sht -name ("");
+hotkey -keyShortcut "F12" -ctl -alt -sht -name ("TestCommandNameCommand");
+hotkey -keyShortcut "x" -ctl -name ("PolygonCollapseNameCommand");
+hotkey -keyShortcut "p" -ctl -sht -name ("ExportSelectionNameCommand");
+hotkey -keyShortcut "F2" -alt -name ("show_dashNameCommand");
+hotkey -keyShortcut "3" -alt -name ("component_mode_faceNameCommand");
+hotkey -keyShortcut "9" -name ("Display_Flat_LightingNameCommand");
+hotkey -keyShortcut "0" -ctl -name ("parent_to_cameraNameCommand");
+hotkey -keyShortcut "%" -name ("toggle_xray_jointsNameCommand");
+hotkey -keyShortcut "p" -ctl -name ("");
+hotkey -keyShortcut "F2" -sht -name ("ConvertSelectionToEdgesNameCommand");
+hotkey -keyShortcut "y" -sht -name ("align_horizontallyNameCommand");
+hotkey -keyShortcut "F10" -ctl -name ("");
+hotkey -keyShortcut "Right" -ctl -alt -name ("");
+hotkey -keyShortcut "F8" -name ("SpreadSheetEditorNameCommand");
+hotkey -keyShortcut "f" -sht -name ("toggle_3dpaint_modeNameCommand");
+hotkey -keyShortcut "1" -ctl -name ("isolate_with_imageplaneNameCommand");
+hotkey -keyShortcut "z" -name ("TogglePanZoomPressNameCommand");
+hotkey -keyShortcut "d" -ctl -sht -name ("Custom_DuplicateNameCommand");
+hotkey -keyShortcut "d" -sht -name ("DeleteNonDeformerHistoryNameCommand");
+hotkey -keyShortcut "c" -ctl -name ("copy_vertex_weightNameCommand");
+hotkey -keyShortcut "F12" -ctl -sht -name ("");
+hotkey -keyShortcut "F12" -name ("PreferencesWindowNameCommand");
+hotkey -keyShortcut "i" -name ("");
+hotkey -keyShortcut "%" -ctl -name ("Toggle_Show_JointsNameCommand");
+hotkey -keyShortcut "F2" -alt -sht -name ("ConvertSelectionToEdgePerimeterNameCommand");
+hotkey -keyShortcut "Down" -sht -name ("");
+hotkey -keyShortcut "!" -name ("activate_handle_xNameCommand");
+hotkey -keyShortcut "l" -releaseName ("");
+hotkey -keyShortcut "\\" -releaseName ("TogglePanZoomReleaseNameCommand");
+hotkey -keyShortcut "Left" -sht -name ("");
 hotkeyCtx -type "Editor" -addClient "shapePanel";
+hotkeyCtx -type "Editor" -addClient "profilerPanel";
 hotkeyCtx -type "Editor" -addClient "dopeSheetPanel";
 hotkeyCtx -type "Editor" -addClient "polyTexturePlacementPanel";
 hotkey -keyShortcut "p" -sht -name ("UnpinSelectionNameCommand");
 hotkey -keyShortcut "p" -name ("PinSelectionNameCommand");
-hotkeyCtx -type "Editor" -addClient "graphEditor";
 hotkeyCtx -type "Editor" -addClient "nodeEditorPanel";
 hotkeyCtx -type "Editor" -addClient "outlinerPanel";
-hotkeyCtx -type "Tool" -addClient "texSculptCacheContext";
-hotkeyCtx -type "Tool" -addClient "xgmIGBrush";
+hotkeyCtx -type "Editor" -addClient "timeEditorPanel";
+hotkeyCtx -type "Editor" -addClient "graphEditor";
+hotkeyCtx -type "Editor" -addClient "hyperShadePanel";
+hotkeyCtx -type "Editor" -addClient "hyperGraphPanel";
+hotkeyCtx -type "Editor" -addClient "posePanel";
 hotkeyCtx -type "Tool" -addClient "bpDraw";
-hotkeyCtx -type "Tool" -addClient "Unfold3DBrush";
 hotkeyCtx -type "Tool" -addClient "texCutContext";
-hotkeyCtx -type "Tool" -addClient "polyCutUV";
-hotkeyCtx -type "Tool" -addClient "sculptMeshCache";
 hotkeyCtx -type "Tool" -addClient "SymmetrizeUVBrush";
+hotkeyCtx -type "Tool" -addClient "Unfold3DBrush";
+hotkeyCtx -type "Tool" -addClient "polyCutUV";
+hotkeyCtx -type "Tool" -addClient "texSculptCacheContext";
+hotkeyCtx -type "Tool" -addClient "sculptMeshCache";
+hotkeyCtx -type "Tool" -addClient "xgmIGBrush";
