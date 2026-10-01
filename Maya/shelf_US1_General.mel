@@ -282,7 +282,7 @@ global proc shelf_US1_General () {
         -flexibleWidthType 3
         -flexibleWidthValue 32
         -enable 1
-        -width 49
+        -width 71
         -height 20
         -manage 1
         -visible 1
@@ -292,7 +292,7 @@ global proc shelf_US1_General () {
         -backgroundColor 0 0 0 
         -highlightColor 0.321569 0.521569 0.65098 
         -align "center" 
-        -label "Auto Save" 
+        -label "Open Shelf Dir" 
         -labelOffset 0
         -rotation 0
         -flipX 0
@@ -305,8 +305,8 @@ global proc shelf_US1_General () {
         -style "textOnly" 
         -marginWidth 0
         -marginHeight 1
-        -command "print(\"User defined macro\");" 
-        -sourceType "mel" 
+        -command "import os\nimport maya.cmds as cmds\n\nversion = str(cmds.about(apiVersion=True))[:4]\nshelf_dir = os.path.join(os.environ[\"USERPROFILE\"], \"Documents\", \"maya\", version, \"prefs\", \"shelves\")\n\nos.startfile(shelf_dir)\n" 
+        -sourceType "python" 
         -commandRepeatable 1
         -flat 1
         -mi "enable" ( "import maya.cmds as cmds\n\n# auto save\ncmds.autoSave(en=True)\ncmds.autoSave(limitBackups=False)\ncmds.autoSave(interval=60*4)" )
